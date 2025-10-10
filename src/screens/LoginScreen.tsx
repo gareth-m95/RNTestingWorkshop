@@ -1,26 +1,10 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, Text, StyleSheet, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { loginApi } from '../api/loginApi';
 import { useNavigation } from '@react-navigation/native';
 
-// Define your navigation stack params
-export type RootStackParamList = {
-  Login: undefined;
-  Home: undefined;
-};
-
-type LoginScreenNavigationProp = NativeStackNavigationProp<
-  RootStackParamList,
-  'Login'
->;
-
-interface Props {
-  navigation: LoginScreenNavigationProp;
-}
-
-export const LoginScreen: React.FC<Props> = () => {
+export const LoginScreen = () => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
